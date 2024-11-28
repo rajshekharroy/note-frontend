@@ -19,7 +19,7 @@ const AddEditNote = ({
   const addNewNote = () => {
     const note = { title, content, tags };
     axios
-      .post("http://localhost:3000/api/add", note)
+      .post("https://note-backend-three.vercel.app/api/add", note)
       .then((res) => {
         if (res.data) {
           fetchNotes();
@@ -37,7 +37,7 @@ const AddEditNote = ({
   const editNote = async () => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/edit/${noteData._id}`,
+        `https://note-backend-three.vercel.app/api/edit/${noteData._id}`,
         {
           title,
           content,

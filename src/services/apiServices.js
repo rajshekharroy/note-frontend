@@ -1,6 +1,6 @@
 // import axios from "axios";
 
-// const BASE_URL = "http://localhost:3000/api";
+// const BASE_URL = "https://note-backend-three.vercel.app/api";
 
 // export const fetchAllNotes = (page = 1, query = "") =>
 //   axios.get(`${BASE_URL}/get?page=${page}&limit=6&query=${query}`);

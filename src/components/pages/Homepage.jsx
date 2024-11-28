@@ -21,7 +21,9 @@ const Homepage = () => {
 
   const fetchNotes = (page = 1, query = "") => {
     axios
-      .get(`http://localhost:3000/api/get?page=${page}&limit=6&query=${query}`)
+      .get(
+        `https://note-backend-three.vercel.app/api/get?page=${page}&limit=6&query=${query}`
+      )
       .then((res) => {
         setAllNotes(res.data.notes);
         setFilteredNotes(res.data.notes);
@@ -44,7 +46,7 @@ const Homepage = () => {
 
   const handleDelete = (note) => {
     axios
-      .delete(`http://localhost:3000/api/delete/${note._id}`)
+      .delete(`https://note-backend-three.vercel.app/api/delete/${note._id}`)
       .then((res) => {
         successToast(res.data.msg);
         fetchNotes();
@@ -57,9 +59,12 @@ const Homepage = () => {
   const handlePin = (note) => {
     const isPinned = !note.isPinned;
     axios
-      .patch(`http://localhost:3000/api/update-pin/${note._id}`, {
-        isPinned,
-      })
+      .patch(
+        `https://note-backend-three.vercel.app/api/update-pin/${note._id}`,
+        {
+          isPinned,
+        }
+      )
       .then((res) => {
         successToast(res.data.msg);
         fetchNotes();
